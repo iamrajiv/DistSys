@@ -1,0 +1,19 @@
+0 verbose cli /opt/homebrew/Cellar/node/23.9.0/bin/node /opt/homebrew/bin/npm
+1 info using npm@11.2.0
+2 info using node@v23.9.0
+3 silly config load:file:/opt/homebrew/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/rajiv.singh/Desktop/projects/DistSys/.npmrc
+5 silly config load:file:/Users/rajiv.singh/.npmrc
+6 silly config load:file:/opt/homebrew/etc/npmrc
+7 verbose title npm view @radix-ui/react-popover description dist-tags.latest homepage version time
+8 verbose argv "view" "--json" "--" "@radix-ui/react-popover" "description" "dist-tags.latest" "homepage" "version" "time"
+9 verbose logfile logs-max:10 dir:/Users/rajiv.singh/Desktop/projects/DistSys/C:\npmcache/_logs/2025-03-09T23_34_28_398Z-
+10 verbose logfile /Users/rajiv.singh/Desktop/projects/DistSys/C:\npmcache/_logs/2025-03-09T23_34_28_398Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/@radix-ui%2freact-popover 454ms (cache miss)
+13 verbose cwd /Users/rajiv.singh/Desktop/projects/DistSys
+14 verbose os Darwin 24.0.0
+15 verbose node v23.9.0
+16 verbose npm  v11.2.0
+17 verbose exit 0
+18 info ok
