@@ -57,7 +57,7 @@ export default function GossipProtocol() {
     }
   })
 
-  function calculatePushPullAwareness(index) {
+  function calculatePushPullAwareness(index: number) {
     if (round === 0 && index === 0) return 100
     if (round === 0) return 0
 
@@ -66,7 +66,7 @@ export default function GossipProtocol() {
     return Math.random() < spreadProbability ? 100 : 0
   }
 
-  function getNodePosition(index, topology) {
+  function getNodePosition(index: number, topology: string) {
     if (topology === "ring") {
       const angle = (2 * Math.PI * index) / nodeCount
       return {
@@ -91,7 +91,7 @@ export default function GossipProtocol() {
   }
 
   // Animation frame reference
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
   const visualizationRef = useRef<HTMLDivElement>(null)
 
   // Control the animation
