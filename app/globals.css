@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* GitHub Primer Light Theme Colors */
+    --background: 210 25% 98%;
+    --foreground: 210 12% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 12% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 12% 16%;
+
+    --primary: 212 92% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 9% 46%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 220 14% 96%;
+    --accent-foreground: 212 92% 45%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: blakc;
+    --input: 220 13% 91%;
+    --ring: 212 92% 45%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* GitHub Primer Dark Theme Colors */
+    --background: 215 15% 12%;
+    --foreground: 210 18% 86%;
+
+    --card: 215 21% 16%;
+    --card-foreground: 210 18% 86%;
+
+    --popover: 215 21% 16%;
+    --popover-foreground: 210 18% 86%;
+
+    --primary: 212 92% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 215 25% 27%;
+    --secondary-foreground: 210 18% 86%;
+
+    --muted: 215 25% 27%;
+    --muted-foreground: 217 13% 65%;
+
+    --accent: 215 25% 27%;
+    --accent-foreground: 212 92% 45%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 27%;
+    --input: 215 25% 27%;
+    --ring: 212 92% 45%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Remove color transition for text to prevent delay */
+  body,
+  body * {
+    transition-property: background-color, border-color, outline-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+  }
+
+  /* Explicitly set color transitions to 0ms */
+  body *,
+  body *::before,
+  body *::after {
+    transition: color 0ms !important;
+  }
+}
+
+@layer base {
+  /* Remove focus outline for mouse users but keep it for keyboard users */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Custom focus styles that match GitHub Primer */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+.animate-in {
+  animation: animate-in 0.3s ease-in-out;
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar that matches GitHub Primer */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.7);
+}
+
+/* Improve focus styles for interactive elements */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  @apply ring-2 ring-ring ring-offset-2 ring-offset-background outline-none;
+}
+
+/* Improve text rendering */
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improve transitions */
+* {
+  @apply transition-colors duration-200;
+}
+
