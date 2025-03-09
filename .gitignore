@@ -38,7 +38,7 @@ Temporary Items
 /node_modules
 /.pnp
 .pnp.js
-.pnpm-lock.yaml
+pnpm-lock.yaml
 C:\npmcache
 
 # testing
