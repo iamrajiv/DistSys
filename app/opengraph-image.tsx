@@ -2,9 +2,7 @@ import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
 
-export async function GET(_: Request, ctx: { params: Record<string, string> }) {
-  const params = await ctx.params;
-  const { __metadata_id__, ...rest } = params || {};
+export default async function Image() {
   return new ImageResponse(
     <div
       style={{
@@ -62,7 +60,7 @@ export async function GET(_: Request, ctx: { params: Record<string, string> }) {
     {
       width: 1200,
       height: 630,
-    },
+    }
   )
 }
 
