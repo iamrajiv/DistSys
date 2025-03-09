@@ -39,6 +39,7 @@ Temporary Items
 /.pnp
 .pnp.js
 .pnpm-lock.yaml
+C:\npmcache
 
 # testing
 /coverage
