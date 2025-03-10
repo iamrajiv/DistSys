@@ -66,7 +66,7 @@ export default function MutualExclusion() {
   }
 
   // Animation frame reference
-  const animationRef = useRef<number>()
+  const animationRef = useRef<number | null>(null)
 
   // Control the animation
   useEffect(() => {
@@ -308,7 +308,7 @@ export default function MutualExclusion() {
                       <li>When a process wants to enter the critical section, it sends a request to the coordinator</li>
                       <li>
                         The coordinator adds the request to a queue if the critical section is busy, or grants
-                        permission immediately if it's free
+                        permission immediately if it&apos;s free
                       </li>
                       <li>When a process finishes, it sends a release message to the coordinator</li>
                       <li>The coordinator grants access to the next process in the queue</li>
@@ -343,7 +343,7 @@ export default function MutualExclusion() {
                       <li>A single token circulates among all nodes in the system</li>
                       <li>Only the process holding the token can enter the critical section</li>
                       <li>After finishing, the process passes the token to the next process</li>
-                      <li>If a process doesn't need the token, it immediately passes it on</li>
+                      <li>If a process doesn&apos;t need the token, it immediately passes it on</li>
                       <li>The token typically follows a predefined logical ring structure</li>
                     </ol>
                   </div>
@@ -378,7 +378,7 @@ export default function MutualExclusion() {
                         other processes
                       </li>
                       <li>
-                        Other processes send back a reply (permission) if they're not interested or have a higher
+                        Other processes send back a reply (permission) if they&apos;re not interested or have a higher
                         timestamp
                       </li>
                       <li>If a process is also interested with a lower timestamp, it defers the reply</li>

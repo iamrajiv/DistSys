@@ -96,6 +96,35 @@ export default function GossipProtocol() {
 
   // Control the animation
   useEffect(() => {
+    const simulateGossipRound = () => {
+      const newInfected = [...nodesWithInfo]
+
+      // Each infected node tries to infect 'fanout' other nodes
+      nodesWithInfo.forEach((nodeIdx) => {
+        if (nodeIdx >= nodes.length || nodes[nodeIdx].failed) return // Skip if node doesn't exist or failed
+
+        // Choose 'fanout' random targets
+        const targets = []
+        for (let i = 0; i < fanout; i++) {
+          const target = Math.floor(Math.random() * nodeCount)
+          if (target !== nodeIdx && target < nodes.length && !nodes[target].failed) {
+            targets.push(target)
+          }
+        }
+
+        // Infect targets
+        targets.forEach((target) => {
+          if (!newInfected.includes(target)) {
+            newInfected.push(target)
+          }
+        })
+      })
+
+      setNodesWithInfo(newInfected)
+      setInfectedCount(newInfected.length)
+      setRound((prev) => prev + 1)
+    }
+
     if (isRunning) {
       let lastRoundTime = Date.now()
 
@@ -135,35 +164,6 @@ export default function GossipProtocol() {
       setNodeCount(10)
     }
   }, [isMobile, nodeCount])
-
-  const simulateGossipRound = () => {
-    const newInfected = [...nodesWithInfo]
-
-    // Each infected node tries to infect 'fanout' other nodes
-    nodesWithInfo.forEach((nodeIdx) => {
-      if (nodeIdx >= nodes.length || nodes[nodeIdx].failed) return // Skip if node doesn't exist or failed
-
-      // Choose 'fanout' random targets
-      const targets = []
-      for (let i = 0; i < fanout; i++) {
-        const target = Math.floor(Math.random() * nodeCount)
-        if (target !== nodeIdx && target < nodes.length && !nodes[target].failed) {
-          targets.push(target)
-        }
-      }
-
-      // Infect targets
-      targets.forEach((target) => {
-        if (!newInfected.includes(target)) {
-          newInfected.push(target)
-        }
-      })
-    })
-
-    setNodesWithInfo(newInfected)
-    setInfectedCount(newInfected.length)
-    setRound((prev) => prev + 1)
-  }
 
   const toggleSimulation = () => {
     setIsRunning(!isRunning)

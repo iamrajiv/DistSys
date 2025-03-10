@@ -85,7 +85,7 @@ export function CAPSystemInfo() {
               <h3 className="font-semibold text-amber-500">CA Systems</h3>
               <p className="text-sm text-muted-foreground">
                 CA systems prioritize consistency and availability but cannot handle network partitions. These are
-                typically single-node databases or systems that don't scale horizontally.
+                typically single-node databases or systems that don&apos;t scale horizontally.
               </p>
               <div className="flex gap-1 flex-wrap pt-1">
                 <Badge variant="outline" className="bg-amber-500/5">

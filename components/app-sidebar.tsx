@@ -156,7 +156,7 @@ export function AppSidebar() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Gitub className="h-4 w-4" />
+              <Github className="h-4 w-4" />
               <span className="sr-only">GitHub Repository</span>
             </Link>
           </Button>
