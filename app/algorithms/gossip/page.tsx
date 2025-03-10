@@ -165,6 +165,12 @@ export default function GossipProtocol() {
     }
   }, [isMobile, nodeCount])
 
+  useEffect(() => {
+    if (nodeCount > 0) {
+      initializeNodes(nodeCount);
+    }
+  }, [nodeCount]);
+
   const toggleSimulation = () => {
     setIsRunning(!isRunning)
   }
@@ -189,6 +195,14 @@ export default function GossipProtocol() {
       return `Complete! All ${infectedCount} healthy nodes received the information in ${round} rounds.`
     }
   }
+
+  // Add this function before the useEffect that uses it
+  const initializeNodes = (count: number) => {
+    setNodesWithInfo([0]); // Reset to initial state with only node 0 having info
+    setInfectedCount(1);
+    setRound(0);
+    setIsSimulationComplete(false);
+  };
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-6 animate-in">

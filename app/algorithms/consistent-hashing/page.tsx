@@ -74,6 +74,13 @@ export default function ConsistentHashing() {
     setNodes(nodes.filter((node) => node !== nodeToRemove))
   }
 
+  const hashedNodes = useMemo(() => {
+    return nodes.map(node => ({
+      node,
+      hash: hashFunction(node)
+    }));
+  }, [nodes]);
+
   return (
     <div className="container mx-auto px-4 py-12">
       <div className="flex items-center mb-8">

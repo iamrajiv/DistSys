@@ -195,7 +195,7 @@ export function CAPTheoremExplorer() {
             toast({
               title: "Operation Successful with Warning",
               description: "Data may be inconsistent across partitions",
-              variant: "warning",
+              variant: "destructive",
             })
           } else {
             toast({
@@ -227,7 +227,7 @@ export function CAPTheoremExplorer() {
       toast({
         title: "Network Partition Activated",
         description: "The network is now partitioned",
-        variant: "warning",
+        variant: "destructive",
       })
     } else {
       toast({
